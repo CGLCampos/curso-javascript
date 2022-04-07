@@ -17,12 +17,17 @@ botaoAdicionar.addEventListener("click", function(event){
     }
 
     //ADICIONANDO O PACIENTE A TABELA
-    var pacienteTr = montarTr(paciente);
-    var table = document.querySelector("#tabela-pacientes");
-    table.appendChild(pacienteTr);
+    adicionarPaciente(paciente);
 
     form.reset();
 });
+
+//ADICIONANDO O PACIENTE A TABELA
+function adicionarPaciente(paciente) {
+    var pacienteTr = montarTr(paciente);
+    var tabela = document.querySelector("#tabela-pacientes");
+    tabela.appendChild(pacienteTr);
+}
 
 //CRIANDO OBJETO DO PACIENTE
 function obterNovoPaciente(form) {
@@ -63,7 +68,7 @@ function validarPaciente(paciente){
 }
 
 function exibirErros(erros) {
-    var ul = document.querySelector("#mensagens-erro");
+    var ul = document.querySelector("#erro-form");
     erros.forEach(function(erro){
         var li = document.createElement("li");
         li.textContent = erro;
